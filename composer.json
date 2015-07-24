@@ -1,0 +1,28 @@
+{
+    "name": "thomaslomas/cpanel-slack-integrator",
+    "license": "MIT",
+    "description": "Simple cPanel and Slack integration",
+    "autoload": {
+        "psr-4": { "": "src/" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/yaml": "~2.0",
+        "symfony/http-foundation": "^2.7",
+        "incenteev/composer-parameter-handler": "~2.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "extra": {
+        "incenteev-parameters": {
+            "file": "config/parameters.yml",
+            "parameter-key": "config"
+        }
+    }
+}
