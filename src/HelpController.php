@@ -11,7 +11,7 @@ class HelpController extends AbstractController
             sprintf(
                 '
 Account Commands:
-    %1$s account create <domain> <username> <password> <package>
+    %1$s account create <domain> <username> <password> <plan>
 
 Email Commands:
     %1$s email create <email> <password> <quota>
