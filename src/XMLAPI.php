@@ -2332,6 +2332,56 @@ class XMLAPI
         return $this->api1_query($username, 'Email', 'addpop', $args);
     }
 
+    public function passwdpop($username, $args)
+    {
+        if (!isset($username) || !isset($args)) {
+            error_log("passwdpop requires that a user and args are passed to it");
+
+            return false;
+        }
+        if (is_array($args) && (sizeof($args) < 3)) {
+            error_log("passwdpop requires that args at least contains an email_username, email_password and email_domain");
+
+            return false;
+        }
+
+        return $this->api1_query($username, 'Email', 'passwdpop', $args);
+    }
+
+    public function editpopquota($username, $args)
+    {
+        if (!isset($username) || !isset($args)) {
+            error_log("editquota requires that a user and args are passed to it");
+
+            return false;
+        }
+
+        if (is_array($args) && (sizeof($args) < 3)) {
+            error_log("editquota requires that args at least contains an email_username, email_domain and email_quota");
+
+            return false;
+        }
+
+        return $this->api1_query($username, 'Email', 'editquota', $args);
+    }
+
+    public function getpopquota($username, $args)
+    {
+        if (!isset($username) || !isset($args)) {
+            error_log("getpopquota requires that a user and args are passed to it");
+
+            return false;
+        }
+
+        if (is_array($args) && (sizeof($args) < 2)) {
+            error_log("getpopquota requires that args at least contains an email_username and email_domain");
+
+            return false;
+        }
+
+        return $this->api1_query($username, 'Email', 'getpopquota', $args);
+    }
+
     // This API function parks a domain onto this user's account
     public function park($username, $newdomain, $topdomain)
     {

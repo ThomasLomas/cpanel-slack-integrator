@@ -26,6 +26,7 @@ switch(strtolower($command)) {
 }
 
 $controller
+    ->setSlashCommand($request->get('command'))
     ->setRequest($request)
     ->setConfig($config)
     ->setCommand($command)

@@ -10,6 +10,7 @@ abstract class AbstractController
     protected $xmlapi;
     protected $command;
     protected $arguments;
+    protected $slashCommand;
 
     public function checkCredentials()
     {
@@ -144,6 +145,30 @@ abstract class AbstractController
     public function setArguments(array $arguments)
     {
         $this->arguments = $arguments;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of slashCommand.
+     *
+     * @return string
+     */
+    public function getSlashCommand()
+    {
+        return $this->slashCommand;
+    }
+
+    /**
+     * Sets the value of slashCommand.
+     *
+     * @param string $slashCommand the slash command
+     *
+     * @return self
+     */
+    public function setSlashCommand($slashCommand)
+    {
+        $this->slashCommand = $slashCommand;
 
         return $this;
     }

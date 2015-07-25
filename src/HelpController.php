@@ -7,11 +7,20 @@ class HelpController extends AbstractController
     public function getResponse()
     {
         $response = new Response;
-        $response->setContent('
-            cPanel Commands:
-            /cpanel account create <domain> <username> <password> <package>
-            /cpanel email create <email> <password> <quota>
-        ');
+        $response->setContent(
+            sprintf(
+                '
+Account Commands:
+    %1$s account create <domain> <username> <password> <package>
+
+Email Commands:
+    %1$s email create <email> <password> <quota>
+    %1$s email changepassword <email> <password>
+    %1$s email changequota <email> <quota>
+                ',
+                $this->getSlashCommand()
+            )
+        );
 
         return $response;
     }
